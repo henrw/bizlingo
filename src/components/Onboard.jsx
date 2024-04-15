@@ -13,11 +13,26 @@ export default function Onboard({ stage, increStage, decreStage }) {
     const scenarioPlaceholderText = "Example:\nI want to discuss meeting schedules with my clients.\n我想要和客户讨论制定会议时间。";
     const domainPlaceholderText = "Example: Engineering, Consumer Product, Education...";
     // Adjust the height on component mount and whenever scenarioText changes
+
+
+    const [progress, setProgress] = useState(-300);
+
+
     useEffect(() => {
         setScenarioText(scenarioPlaceholderText);
         setDomainText(domainPlaceholderText);
-        setDomainText(domainPlaceholderText);
+
+        const intervalId = setInterval(() => {
+            setProgress(prevProgress => {
+                if (prevProgress >= 500) {
+                    clearInterval(intervalId);
+                    return prevProgress; // Stop when image reaches the window width minus its own width to avoid overflow
+                }
+                return prevProgress + 1; // Increase position by 10px every second
+            });
+        }, 10);
     }, []);
+
 
     return (
         <>
@@ -81,11 +96,11 @@ export default function Onboard({ stage, increStage, decreStage }) {
                 )
             }
             {
-                stage === 2 && (
+                stage === 2 && progress < 500 && (
                     <>
-                        <svg width="800" height="176" viewBox="0 0 800 176" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M695.744 0.748199H-30.4512V175.735H708.243L695.744 0.748199Z" fill="#FFC800" />
-                            <rect x="41" y="24" width="511" height="26" rx="13" fill="#FFD300" />
+                        <svg width={(500 + progress).toString()} height="176" viewBox={`0 0 ${(500 + progress).toString()} 176`} fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d={`M${(457 + progress).toString()}.744 0.748199H-30.4512V175.735H${(470 + progress).toString()}.243L${(457 + progress).toString()}.744 0.748199Z`} fill="#FFC800" />
+                            <rect x="41" y="24" width={(419 + progress).toString()} height="26" rx="13" fill="#FFD300" />
                             <defs>
                                 <radialGradient id="paint0_radial_111_948" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(750.697 34.4635) rotate(114.523) scale(140.271 181.97)">
                                     <stop stop-color="#26FF55" />
@@ -100,7 +115,14 @@ export default function Onboard({ stage, increStage, decreStage }) {
                             </defs>
                         </svg>
 
-                        <img src={bizfly} width={200} className="fixed left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2" alt="Bizlingo Bag" />
+                        <img style={{ left: `${progress + 860}px`, }} src={bizfly} width={200} className="fixed top-1/2 transform -translate-y-1/2 -translate-x-1/2" alt="Bizlingo Bag" />
+                    </>
+                )
+            }
+            {
+                stage === 2 && progress === 500 && (
+                    <>
+                    TODO
                     </>
                 )
             }
