@@ -551,9 +551,9 @@ e-3: I need it by tomorrow, is that possible?
         await gpt4ApiCall(prompts[2]);
         await gpt4ApiCall(prompts[3], parseQuestion1String);
         // parseQuestion1String(question1Str);
-        await gpt4ApiCall(prompts[4], parseQuestion2String);
-        // parseQuestion2String(question2Str);
-        await gpt4ApiCall(prompts[5], parseQuestion3String);
+        // await gpt4ApiCall(prompts[4], parseQuestion2String);
+        // // parseQuestion2String(question2Str);
+        // await gpt4ApiCall(prompts[5], parseQuestion3String);
         // parseQuestion3String(question3Str);
     }
 
