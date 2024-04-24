@@ -5,7 +5,7 @@ export default function Congratulations({ stage, increStage, decreStage }) {
     return (
         <>
             {
-                stage === 5 && (
+                stage === 6 && (
                     <div className="flex flex-col items-center">
                         <img src={treasure} width={300} alt="treasure" />
                         <div className="text-lg font-bold">You’ve reached your daily goal</div>

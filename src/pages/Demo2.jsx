@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 
 import ProgressBar from "../components/ProgressBar";
 import HeadBar from "../components/HeadBar";
-import Onboard from "../components/Onboard";
+import Onboard2 from "../components/Onboard2";
 import bizbag from '../assets/bizzie-bag.svg';
 import Words from "../components/Words";
 import Sentence from "../components/Sentence";
@@ -19,7 +19,7 @@ export default function Demo({}) {
                     <ProgressBar stage={stage} stageTotal={10} increStage={() => {setStage(stage+1)}} decreStage={() => {setStage(stage-1)}} />
                     <div className="flex-grow flex flex-col relative items-center justify-center">
                         <div className="flex flex-col w-3/5">
-                            <Onboard stage={stage} context={context} setContext={setContext} increStage={() => {setStage(stage+1)}} decreStage={() => {setStage(stage-1)}}/>
+                            <Onboard2 stage={stage} context={context} setContext={setContext} increStage={() => {setStage(stage+1)}} decreStage={() => {setStage(stage-1)}}/>
                             <Words stage={stage} context={context} setContext={setContext} increStage={() => {setStage(stage+1)}} decreStage={() => {setStage(stage-1)}}/>
                             <Sentence stage={stage} increStage={() => {setStage(stage+1)}} decreStage={() => {setStage(stage-1)}}/>
                             <Congratulations stage={stage} increStage={() => {setStage(stage+1)}} decreStage={() => {setStage(stage-1)}}/>

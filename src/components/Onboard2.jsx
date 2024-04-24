@@ -547,14 +547,14 @@ e-3: I need it by tomorrow, is that possible?
     // }
 
     const generateCoursePipeline = async () => {
-        await gpt4ApiCall(prompts[1], parseWordsPatterns);
-        await gpt4ApiCall(prompts[2]);
-        await gpt4ApiCall(prompts[3], parseQuestion1String);
-        // parseQuestion1String(question1Str);
-        await gpt4ApiCall(prompts[4], parseQuestion2String);
-        // parseQuestion2String(question2Str);
-        await gpt4ApiCall(prompts[5], parseQuestion3String);
-        // parseQuestion3String(question3Str);
+        // await gpt4ApiCall(prompts[1], parseWordsPatterns);
+        // await gpt4ApiCall(prompts[2]);
+        // await gpt4ApiCall(prompts[3], parseQuestion1String);
+        parseQuestion1String(question1Str);
+        // await gpt4ApiCall(prompts[4], parseQuestion2String);
+        parseQuestion2String(question2Str);
+        // await gpt4ApiCall(prompts[5], parseQuestion3String);
+        parseQuestion3String(question3Str);
     }
 
     return (
@@ -578,7 +578,7 @@ e-3: I need it by tomorrow, is that possible?
                         <AdaptiveTextarea placeholderText={domainPlaceholderText} text={domainText} setText={setDomainText} />
 
                         <button className="w-full mt-4 rounded-xl p-2 outline outline-2 outline-gray-200 bg-theme-green text-white"
-                            onClick={() => { increStage(); gpt4ApiCall(prompts[0], parseConversationString); }}
+                            onClick={() => { increStage(); parseConversationString(conversationStr); }} // gpt4ApiCall(prompts[0], parseConversationString);
                         >
                             CONTINUE
                         </button>
@@ -682,12 +682,13 @@ e-3: I need it by tomorrow, is that possible?
                 )
             }
 
+
             {
                 loading && (
                     <>
                         <svg width={(500 + progress).toString()} height="176" viewBox={`0 0 ${(500 + progress).toString()} 176`} fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d={`M${(57 + progress).toString()}.744 0.748199H-30.4512V175.735H${(70 + progress).toString()}.243L${(57 + progress).toString()}.744 0.748199Z`} fill="#FFC800" />
-                            <rect x="41" y="24" width={(19 + progress).toString()} height="26" rx="13" fill="#FFD300" />
+                            <path d={`M${(457 + progress).toString()}.744 0.748199H-30.4512V175.735H${(470 + progress).toString()}.243L${(457 + progress).toString()}.744 0.748199Z`} fill="#FFC800" />
+                            <rect x="41" y="24" width={(419 + progress).toString()} height="26" rx="13" fill="#FFD300" />
                             <defs>
                                 <radialGradient id="paint0_radial_111_948" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(750.697 34.4635) rotate(114.523) scale(140.271 181.97)">
                                     <stop stopColor="#26FF55" />
