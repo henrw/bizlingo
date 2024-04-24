@@ -12,7 +12,7 @@ import Blank from "./Blank";
 export default function Onboard({ stage, context, setContext, increStage, decreStage }) {
 
     let intervalId;
-    const [scenarioText, setScenarioText] = useState('');
+    const [scenarioText, setScenarioText] = useState('I am a marketing manager and must negotiate a new advertising contract with our agency.');
     const [domainText, setDomainText] = useState('');
     // const [typeIdx, setTypeIdx] = useState(-1);
 
